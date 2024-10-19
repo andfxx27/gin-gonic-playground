@@ -13,7 +13,7 @@ func RegisterRoutes(r *gin.Engine, dbConnPool *pgxpool.Pool, redisClient *redis.
 	mainGroup := r.Group("/api/v1")
 
 	// Route health
-	healthHandler := health.NewHandler(dbConnPool)
+	healthHandler := health.NewHandler(dbConnPool, redisClient)
 	healthGroup := mainGroup.Group("/health")
 	healthGroup.GET("/health-check", healthHandler.HealthCheck)
 
