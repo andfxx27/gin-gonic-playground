@@ -4,6 +4,14 @@ Playground project for creating RESTful API using Gin framework.
 
 ---
 
+## Features
+
+Included features in this project:
+1. Basic CRUD using Gin, PostgreSQL, with Redis for the caching
+2. Authentication middleware using JWT
+3. Database migration using `golang-migrate` library
+4. Custom logging to standard output and file with log rotation
+
 ## Environment Variables
 
 Required environment variables are specified inside .env.example file.
