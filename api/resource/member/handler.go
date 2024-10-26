@@ -136,6 +136,7 @@ func (h *handler) SignIn(c *gin.Context) {
 		"statusCode":  Success,
 		"accessToken": accessToken,
 	})
+	return
 }
 
 func (h *handler) GetProfile(c *gin.Context) {
@@ -192,6 +193,7 @@ func (h *handler) GetProfile(c *gin.Context) {
 			"error":      "Failed to get member profile.",
 			"statusCode": ErrGetProfileErrMarshalMemberProfile,
 		})
+		return
 	}
 
 	err = h.redisClient.Set(c, redisKey, memberBytes, 0).Err()
@@ -209,4 +211,5 @@ func (h *handler) GetProfile(c *gin.Context) {
 		"statusCode": Success,
 		"member":     member,
 	})
+	return
 }
